@@ -7,10 +7,10 @@ const {
   deleteBookmark,
   updateBookmark,
 } = require("../queries/bookmarksQueries");
-const { checkRequest, checkId, validateURL }  = require("../../validations/checkBookmarks");
+const { checkRequest, checkId, validateURL }  = require("../validations/checkBookmarks");
 
 //index route
-bookmarks.get("/", checkId ,async (req, res) => {
+bookmarks.get("/",async (req, res) => {
   const allBookmarks = await getAllBookmarks();
   if (allBookmarks) {
     res.status(202).json(allBookmarks);

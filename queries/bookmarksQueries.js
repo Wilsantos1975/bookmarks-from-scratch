@@ -52,7 +52,7 @@ const deleteBookmark = async (id) => {
 //update query
 const updateBookmark = async (id, bookmark) => {
   try {   
-    const { name, url, is_favorite, category } = bookmark;
+    const { name, url, is_favorite, category } = bookmar;
     const updatedBookmark = await db.one(
       "UPDATE bookmarks SET name = $1, url = $2, is_favorite = $3, category = $4 WHERE id = $5 RETURNING *",
       [name, url, is_favorite, category, id]

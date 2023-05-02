@@ -13,9 +13,29 @@ CREATE TABLE bookmarks (
   is_favorite BOOLEAN 
 );
 
-CREATE TABLE users {
+-- CREATE TABLE users {
+--   id SERIAL PRIMARY KEY,
+--   username TEXT,
+--   password TEXT
+-- }
+
+-- reviews table
+-- attributtes ? content, rating, bookmark_id, user_id, 0-5, reviewer, etc
+
+DROP TABLE IF EXISTS reviews;
+
+CREATE TABLE reviews (
   id SERIAL PRIMARY KEY,
-  username TEXT,
-  password TEXT
-}
+  reviewer TEXT,
+  title TEXT,
+  content TEXT,
+  rating NUMERIC
+  CHECK (rating >= 0 AND rating <= 5),
+  bookmark_id INT REFERENCES bookmarks(id)
+  ON DELETE CASCADE
+);
+
+
+
+
 
